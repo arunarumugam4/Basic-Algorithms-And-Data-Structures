@@ -1,6 +1,5 @@
-// Binar Tree
-
-
+// BINARY TREE
+  //NODE CREATOR
 function Node(val){
   this.value = val;
   this.left = null;
@@ -8,7 +7,7 @@ function Node(val){
   
 }
 
-
+  //METHOD TO ADD NODE
 Node.prototype.addNode = function(val){
     if(this.value===null){
       return this.value = val;
@@ -29,3 +28,31 @@ Node.prototype.addNode = function(val){
       }
     }
   }
+
+
+  //METHOD TO SEARCH THE NODE VALUE
+Node.prototype.search = function(val){
+  if(this.value === null){
+    return "Not Found";
+  } else if(this.value === val){
+    return "Value Found";
+  } else {
+    if(this.value>val){
+      if(this.left === null){
+        return "Not Found";
+      } else if(this.left.value === val){
+        return "Value Found";
+      } else {
+       return this.left.search(val);
+      }
+    } else if (this.value<val){
+      if(this.right === null){
+        return "Not Found";
+      } else if(this.right.value === val){
+        return "Value Found";
+      } else {
+       return this.right.search(val);
+      }
+    }
+  }
+}
