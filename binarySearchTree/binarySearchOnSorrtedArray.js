@@ -1,28 +1,31 @@
-var doSearch = function(array, targetValue) {
-	var min = 0;
-	var max = array.length - 1;
-    var guess;
-    var guesscount=0;
-    while(min <= max){
-        var count =1;
-        guess = Math.floor((max+min)/2);
-        
-        
-        guesscount++;
-        if(array[guess]===targetValue){
-          
-           return guess;
-         
-        }else if(array[guess]<targetValue){
-            min= guess+1;
-        }else {
-            max = guess-1;
+// Binar Tree
+
+
+function Node(val){
+  this.value = val;
+  this.left = null;
+  this.right = null;
+  
+}
+
+
+Node.prototype.addNode = function(val){
+    if(this.value===null){
+      return this.value = val;
+      } else{
+      if(this.value<val){
+        if(this.right===null){
+         return this.right = new Node(val);
+        } else {
+          return this.right.addNode(val);
+        }
+      } else if(this.value>val){
+        if(this.left===null){
+         return this.left = new Node(val);
+        } else {
+          return this.left.addNode(val);
         }
         
-        
+      }
     }
-    
-
-
-	return -1;
-};
+  }
