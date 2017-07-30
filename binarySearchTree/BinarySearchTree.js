@@ -29,6 +29,7 @@ Node.prototype.addNode = function(val){
     }
   }
 
+//BINARY SEARCH ALGORITHM
 
   //METHOD TO SEARCH THE NODE VALUE
 Node.prototype.search = function(val){
